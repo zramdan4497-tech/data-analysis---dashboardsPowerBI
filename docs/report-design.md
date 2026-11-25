@@ -1,29 +1,24 @@
-# Report design: Superstore Sales Dashboard
+# Report design: DAX Ziad.pbix (as implemented)
 
-## Page 1 - Executive Overview
-- KPI cards: Total Sales, Total Profit, Profit Margin %, Orders Count
-- Line chart: Sales Running Total by Month (Calendar[Date])
-- Bar chart: Total Sales by Category, sorted descending
-- Map or filled bar: Total Sales by Region
-- Slicers: Year, Segment, Category
+## Data model
 
-## Page 2 - Product Analysis
-- Table: Product Name, Total Sales, Total Profit, Profit Margin % (conditional formatting on margin, red when negative)
-- Column chart: Top 10 products by sales
-- Scatter: Discount vs Profit by Sub-Category (bubble size = Quantity)
-- Slicers: Category, Sub-Category
+Four tables: Clothes, Food, Money, Needs. Each table has a Country column (Iraq, Lybia, Syria, Yemen, as spelled in the data) and its own DAX measures.
 
-## Page 3 - Customer & Segment Insights
-- Donut: Sales % of Total by Segment
-- Bar: Avg Order Value by Segment
-- Table: Top 15 customers by Total Sales with Profit Margin %
-- Column: Orders Count by Ship Mode
+Measure names as they appear in the file:
 
-## Page 4 - Trends & YoY
-- Line and column combo: Total Sales (column) and Sales YoY % (line) by month
-- KPI cards: Sales YoY %, Profit YoY % vs last year
-- Matrix: Sales by Year x Category
+- Clothes: total members, total males, total famales
+- Food: total members f, total males f, total famales f
+- Money: total members m, total males m, total females m
+- Needs: total females n, total males n, total females 6-18 n, total male 6-18 n
 
-## Interactions
-- Cross-filtering on all pages; drill-through from product table to Page 2
-- Tooltip page with Sales, Profit, Margin %, Orders Count
+## Pages (in report order)
+
+1. **clothes**: clustered column chart (by Country; total famales, total males, total members), card visual with the three Clothes totals, Country slicer (Clothes.Country).
+2. **food**: clustered column chart (by Country; the three Food measures), card visual with the Clothes totals, Country slicer (Food.Country).
+3. **moeny**: clustered column chart (by Country; the three Money measures), card visual with the Clothes totals, Country slicer (Money.Country). The page name is spelled "moeny" in the file.
+4. **needs**: clustered column chart (by Country; total females n, total males n, total females 6-18 n, total male 6-18 n), card visual with the Clothes totals, Country slicer (Needs.Country).
+
+## Notes
+
+- The KPI cards on all four pages show the Clothes measures.
+- The report uses a custom color theme (Divergent) registered in the file.
