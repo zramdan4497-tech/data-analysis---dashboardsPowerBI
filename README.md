@@ -19,7 +19,7 @@ End-to-end Power BI analysis of retail sales data: data preparation with Power Q
 | `DAX Ziad.pbix` | The Power BI report file itself |
 | `Screenshot 2026-08-31 1646213.png`, `Screenshot 2026-08-31 164623.png` | Screenshots of the built dashboard |
 | `data/sample_superstore.csv` | Sample of the classic Superstore retail dataset (orders, products, sales, profit) |
-| `powerquery/Superstore_Query.m` | Full Power Query script: typing, trimming, date handling, derived columns |
+| `powerquery/Superstore_Query.pq` | Full Power Query script: typing, trimming, date handling, derived columns |
 | `dax/measures.dax` | All report measures: sales, profit, margin, YoY growth, running totals, rankings |
 | `docs/report-design.md` | Page-by-page report layout: visuals, fields, and interactions |
 
@@ -38,6 +38,6 @@ Single fact table (`Orders`) plus a calendar table created in DAX (`Calendar`). 
 - The Consumer segment brings the most orders; Home Office shows the highest average order value
 
 ## How to rebuild
-1. Load `data/sample_superstore.csv` through the query in `powerquery/Superstore_Query.m`
+1. Load `data/sample_superstore.csv` through the query in `powerquery/Superstore_Query.pq`
 2. Create the calendar table and the measures from `dax/measures.dax`
 3. Build the pages following `docs/report-design.md`
